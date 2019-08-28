@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    initStream();
   }
 
   Stream<String> streamData() {
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             StreamBuilder<String>(
-              stream: streamData(),
+              stream: timmerStreamController.stream,
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return Text(
