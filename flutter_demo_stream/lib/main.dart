@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Stream<String> streamData() {
-    return null;
+    return Stream<String>.periodic(Duration(seconds: 1), (value) {
+      return value.toString();
+    });
   }
 
   void initStream() {
